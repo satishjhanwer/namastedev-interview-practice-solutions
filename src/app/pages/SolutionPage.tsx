@@ -46,7 +46,7 @@ export default function SolutionPage() {
 
       <Tabs value={tab} onChange={(_, v) => setTab(v)} sx={{ mt: 1.5 }}>
         <Tab label="Render" />
-        <Tab label="README" disabled={!entry.readme} />
+        <Tab label="Readme" disabled={!entry.readme} />
       </Tabs>
 
       {tab === 0 && Comp && (

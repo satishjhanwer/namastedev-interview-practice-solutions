@@ -1,0 +1,167 @@
+.recipe-app {
+  padding: 0 16px;
+  max-width: 980px;
+  margin: 28px auto 48px;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin: 0 0 14px;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.controls {
+  gap: 12px;
+  display: grid;
+  align-items: center;
+  padding: 10px 0 18px;
+  border-bottom: 1px solid #e6e8eb;
+  grid-template-columns: auto auto 1fr auto;
+}
+
+.label {
+  font-weight: 600;
+  color: #1b1b1f;
+}
+
+.select {
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e6e8eb;
+}
+
+.avg {
+  font-size: 18px;
+  font-weight: 700;
+  grid-column: 3 / 4;
+  justify-self: center;
+}
+
+.cart {
+  font-weight: 700;
+  justify-self: end;
+  grid-column: 4 / 5;
+}
+
+.grid {
+  gap: 20px;
+  display: grid;
+  margin-top: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+  display: flex;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ffffff;
+  flex-direction: column;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+}
+
+.thumb {
+  width: 100%;
+  height: 160px;
+  display: block;
+  object-fit: cover;
+}
+
+.content {
+  padding: 14px 16px 16px;
+}
+
+.title {
+  font-size: 18px;
+  margin: 6px 0 8px;
+}
+
+.meta {
+  gap: 8px;
+  display: flex;
+  font-size: 14px;
+  margin: 0 0 12px;
+  color: #5f6b7a;
+  align-items: center;
+}
+
+.badge::before {
+  content: "🍴 ";
+}
+
+.rating::before {
+  content: "⭐ ";
+}
+
+.reviews {
+  opacity: 0.85;
+}
+
+.btn {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  appearance: none;
+  font-weight: 700;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #19a874;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+  transition: transform 0.06s ease, background 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover {
+  background: #17a06e;
+}
+
+.btn:active {
+  background: #13895f;
+  transform: translateY(1px);
+}
+
+.empty {
+  padding: 28px 16px;
+  text-align: center;
+  background: #fff;
+  grid-column: 1 / -1;
+  color: #5f6b7a;
+  border-radius: 12px;
+  border: 1px dashed #e6e8eb;
+}
+
+@media (max-width: 560px) {
+  .controls {
+    row-gap: 10px;
+    border-bottom: none;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(28px, auto);
+  }
+
+  .label {
+    justify-self: end;
+  }
+
+  .select {
+    justify-self: start;
+  }
+
+  .avg {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .cart {
+    justify-self: end;
+    grid-column: 2 / 3;
+  }
+}
