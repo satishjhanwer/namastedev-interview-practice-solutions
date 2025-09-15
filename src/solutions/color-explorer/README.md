@@ -1,4 +1,4 @@
-### Color Explorer
+# Color Explorer
 
 - Validates and normalizes **HEX** input (`#RGB` / `#RRGGBB`).
 - Generates lighter/darker shades at -40, -20, -10, 0, +10, +20, +40%.

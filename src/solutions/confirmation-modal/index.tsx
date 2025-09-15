@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, type JSX } from "react";
+import { useEffect, useRef, useState, type JSX } from 'react';
 
 function ConfirmationModal(): JSX.Element {
-  const [status, setStatus] = useState<string>("");
+  const [status, setStatus] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const openBtnRef = useRef<HTMLButtonElement | null>(null);
   const confirmBtnRef = useRef<HTMLButtonElement | null>(null);
@@ -24,35 +24,26 @@ function ConfirmationModal(): JSX.Element {
 
   const handleConfirm = () => {
     setIsOpen(false);
-    setStatus("Confirmed");
+    setStatus('Confirmed');
   };
 
   const handleCancel = () => {
     setIsOpen(false);
-    setStatus("Cancelled");
+    setStatus('Cancelled');
   };
 
   const onKeyDownBackdrop = (e: any) => {
-    if (e.key === "Escape") handleCancel();
+    if (e.key === 'Escape') handleCancel();
   };
 
   return (
     <div className="modal-container">
-      <button
-        ref={openBtnRef}
-        className="open-modal-btn"
-        data-testid="open-modal-button"
-        onClick={handleOpen}
-      >
+      <button ref={openBtnRef} className="open-modal-btn" data-testid="open-modal-button" onClick={handleOpen}>
         Open Confirmation Modal
       </button>
 
       {isOpen && (
-        <div
-          className="modal-backdrop"
-          onKeyDown={onKeyDownBackdrop}
-          aria-hidden={false}
-        >
+        <div className="modal-backdrop" onKeyDown={onKeyDownBackdrop} aria-hidden={false}>
           <div
             className="modal-box"
             role="dialog"
@@ -70,19 +61,10 @@ function ConfirmationModal(): JSX.Element {
             </p>
 
             <div className="modal-buttons">
-              <button
-                ref={confirmBtnRef}
-                className="confirm-btn"
-                onClick={handleConfirm}
-                data-testid="confirm-button"
-              >
+              <button ref={confirmBtnRef} className="confirm-btn" onClick={handleConfirm} data-testid="confirm-button">
                 Confirm
               </button>
-              <button
-                className="cancel-btn"
-                onClick={handleCancel}
-                data-testid="cancel-button"
-              >
+              <button className="cancel-btn" onClick={handleCancel} data-testid="cancel-button">
                 Cancel
               </button>
             </div>

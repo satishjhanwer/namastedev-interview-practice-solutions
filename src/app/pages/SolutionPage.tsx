@@ -1,41 +1,43 @@
-import React, { Suspense, useMemo, useState } from "react";
-import { useParams, Link as RouterLink } from "react-router-dom";
-import {
-  Box,
-  Button,
-  Paper,
-  Stack,
-  Tab,
-  Tabs,
-  Typography,
-} from "@mui/material";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { marked } from "marked";
-import { findSolution, getLazyComponent } from "../registry";
-import PlaygroundShell from "../shared/PlaygroundShell";
-import ErrorBoundary from "../shared/ErrorBoundary";
+import React, { Suspense, useMemo, useState } from 'react';
+import { useParams, Link as RouterLink } from 'react-router-dom';
+import { Box, Button, Paper, Stack, Tab, Tabs, Typography } from '@mui/material';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { marked } from 'marked';
+import { findSolution, getLazyComponent } from '../registry';
+import PlaygroundShell from '../shared/PlaygroundShell';
+import ErrorBoundary from '../shared/ErrorBoundary';
 
 export default function SolutionPage() {
-  const { slug = "" } = useParams();
+  const { slug = '' } = useParams();
   const entry = findSolution(slug);
   const [tab, setTab] = useState<0 | 1>(0);
   const Comp = useMemo(() => (entry ? getLazyComponent(entry) : null), [entry]);
 
   if (!entry) {
-    return <Typography>Unknown solution: <code>{slug}</code></Typography>;
+    return (
+      <Typography>
+        Unknown solution: <code>{slug}</code>
+      </Typography>
+    );
   }
 
   const copyLink = async () => {
-    try { await navigator.clipboard.writeText(window.location.href); } catch {}
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+    } catch {}
   };
 
   return (
     <Paper sx={{ p: 2 }}>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
-        <Typography variant="h5" fontWeight={700}>{entry.title}</Typography>
+        <Typography variant="h5" fontWeight={700}>
+          {entry.title}
+        </Typography>
         <Stack direction="row" spacing={1}>
-          <Button startIcon={<ContentCopyIcon />} onClick={copyLink}>Copy link</Button>
+          <Button startIcon={<ContentCopyIcon />} onClick={copyLink}>
+            Copy link
+          </Button>
           <Button component={RouterLink} to="/" startIcon={<ArrowBackIcon />}>
             All solutions
           </Button>
@@ -60,8 +62,7 @@ export default function SolutionPage() {
       )}
 
       {tab === 1 && entry.readme && (
-        <Box sx={{ mt: 2, color: "text.secondary" }}
-             dangerouslySetInnerHTML={{ __html: marked.parse(entry.readme) as string }} />
+        <Box sx={{ mt: 2, color: 'text.secondary' }} dangerouslySetInnerHTML={{ __html: marked.parse(entry.readme) as string }} />
       )}
     </Paper>
   );

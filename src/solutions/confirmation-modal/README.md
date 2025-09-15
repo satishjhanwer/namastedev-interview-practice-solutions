@@ -1,4 +1,4 @@
-### Confirmation Modal
+# Confirmation Modal
 
 - Opens a modal with overlay; closes on **Cancel**, **outside click**, or **Esc**.
 - Focus lands on **Confirm** when opened (basic focus management).

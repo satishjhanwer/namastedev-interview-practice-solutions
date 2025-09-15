@@ -1,0 +1,13 @@
+.backToTop {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.backtotop-btn {
+  right: 20px;
+  bottom: 20px;
+  position: fixed;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 15px;
+}

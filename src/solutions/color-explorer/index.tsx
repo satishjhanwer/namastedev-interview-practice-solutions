@@ -1,35 +1,39 @@
-import { useMemo, useState, type JSX } from "react";
-import { colorNameToHex } from "./colorData";
+import { useMemo, useState, type JSX } from 'react';
+import { colorNameToHex } from './colorData';
 
 const normalizeKey = (s: string): string => {
-  const collapsed = s.trim().replace(/\s+/g, " ");
-  return collapsed.replace(/\s/g, "").toLowerCase();
-}
+  const collapsed = s.trim().replace(/\s+/g, ' ');
+  return collapsed.replace(/\s/g, '').toLowerCase();
+};
 
 const toFullHex = (hex: string): string => {
-  let h = hex.startsWith("#") ? hex.slice(1) : hex;
-  if (h.length === 3) h = h.split("").map((c) => c + c).join("");
-  if (h.length !== 6) return "#000000";
+  let h = hex.startsWith('#') ? hex.slice(1) : hex;
+  if (h.length === 3)
+    h = h
+      .split('')
+      .map((c) => c + c)
+      .join('');
+  if (h.length !== 6) return '#000000';
   return `#${h.toLowerCase()}`;
-}
+};
 
 const prettifyName = (key: string): string => {
-  const prefixes = ["light", "dark", "medium"];
+  const prefixes = ['light', 'dark', 'medium'];
   for (const p of prefixes) {
     if (key.startsWith(p) && key.length > p.length) {
-      return cap(p) + " " + cap(key.slice(p.length));
+      return cap(p) + ' ' + cap(key.slice(p.length));
     }
   }
   return key;
-}
+};
 
-const cap = (s: string): string =>  {
+const cap = (s: string): string => {
   return s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
-}
+};
 
 export default function ColorExplorer(): JSX.Element {
-  const [input, setInput] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const [input, setInput] = useState<string>('');
+  const [error, setError] = useState<string>('');
   const [result, setResult] = useState<any>(null);
 
   const normalized = useMemo(() => normalizeKey(input), [input]);
@@ -37,23 +41,23 @@ export default function ColorExplorer(): JSX.Element {
   const handleSearch = () => {
     if (!normalized) {
       setResult(null);
-      setError("Please enter a color name.");
+      setError('Please enter a color name.');
       return;
     }
 
     const hex = colorNameToHex(normalized);
     if (hex) {
       setResult({ name: prettifyName(normalized), hex: toFullHex(hex) });
-      setError("");
+      setError('');
     } else {
       setResult(null);
       setError("Sorry, I couldn't recognize that color.");
     }
-  }
+  };
 
   const onKeyDown = (e: any) => {
-    if (e.key === "Enter") handleSearch();
-  }
+    if (e.key === 'Enter') handleSearch();
+  };
 
   return (
     <div className="container">
@@ -69,12 +73,7 @@ export default function ColorExplorer(): JSX.Element {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={onKeyDown}
         />
-        <button
-          type="button"
-          data-testid="search-button"
-          onClick={handleSearch}
-          aria-label="Search color"
-        >
+        <button type="button" data-testid="search-button" onClick={handleSearch} aria-label="Search color">
           🔍
         </button>
       </div>

@@ -1,4 +1,4 @@
-### Chip Input (Tags)
+# Chip Input (Tags)
 
 - Add with **Enter**, **Comma**, or **Tab**; **Backspace** deletes the last chip when input is empty.
 - **Paste** supports comma/newline separated values.

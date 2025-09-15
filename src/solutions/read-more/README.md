@@ -1,4 +1,4 @@
-### Read More / Read Less
+# Read More / Read Less
 
 - Show first 100 chars by default with ellipsis
 - Toggle button flips between truncated and full text

@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from "react";
-import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import type { PropsWithChildren } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const BASE_CSS = `
 :host { color-scheme: light; }
@@ -15,17 +15,14 @@ html, body { margin: 0; }
 }
 `;
 
-export default function PlaygroundShell({
-  children,
-  css,
-}: PropsWithChildren<{ css?: string }>) {
+export default function PlaygroundShell({ children, css }: PropsWithChildren<{ css?: string }>) {
   const hostRef = useRef<HTMLDivElement | null>(null);
   const [shadow, setShadow] = useState<ShadowRoot | null>(null);
 
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
-    const root = host.shadowRoot ?? host.attachShadow({ mode: "open" });
+    const root = host.shadowRoot ?? host.attachShadow({ mode: 'open' });
     setShadow(root);
   }, []);
 
@@ -39,7 +36,7 @@ export default function PlaygroundShell({
             {css ? <style>{css}</style> : null}
             <div className="pg">{children}</div>
           </>,
-          shadow as unknown as Element
+          shadow as unknown as Element,
         )}
     </div>
   );

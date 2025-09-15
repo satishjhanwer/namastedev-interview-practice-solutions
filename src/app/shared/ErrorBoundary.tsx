@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type State = { err?: unknown };
 
@@ -12,7 +12,7 @@ export default class ErrorBoundary extends React.Component<React.PropsWithChildr
   render() {
     if (this.state.err) {
       return (
-        <div style={{ color: "#ffb4b4" }}>
+        <div style={{ color: '#ffb4b4' }}>
           <strong>Component crashed:</strong> {String(this.state.err)}
         </div>
       );

@@ -1,4 +1,4 @@
-import { useState, type JSX } from "react";
+import { useState, type JSX } from 'react';
 
 const DEFAULT_LIMIT = 100;
 
@@ -12,7 +12,7 @@ export default function ReadMore(): JSX.Element {
   const [expanded, setExpanded] = useState<boolean>(false);
   const limit = DEFAULT_LIMIT;
 
-  const display = expanded ? text : text.length > limit ? text.slice(0, limit) + "..." : text;
+  const display = expanded ? text : text.length > limit ? text.slice(0, limit) + '...' : text;
 
   const toggleExpanded = () => {
     setExpanded((prev: boolean) => !prev);
@@ -24,12 +24,8 @@ export default function ReadMore(): JSX.Element {
       <p className="readmore-text" data-testid="readmore-text">
         {display}
       </p>
-      <button
-        className="readmore-button"
-        data-testid="readmore-button"
-        onClick={toggleExpanded}
-      >
-        {expanded ? "Read Less" : "Read More"}
+      <button className="readmore-button" data-testid="readmore-button" onClick={toggleExpanded}>
+        {expanded ? 'Read Less' : 'Read More'}
       </button>
     </div>
   );
