@@ -7,34 +7,40 @@ export type Status = "Done" | "WIP";
 export interface SolutionMeta {
   title: string;
   tags?: string[];
-  difficulty?: Difficulty;
   status?: Status;
   description?: string;
+  difficulty?: Difficulty;
 }
 
 export interface SolutionEntry {
   slug: string;
+  css?: string;
   title: string;
-  import: () => Promise<{ default: ComponentType<any> }>;
-  Component?: LazyExoticComponent<ComponentType<any>>;
-  meta?: SolutionMeta;
   readme?: string;
-  css?: string; // 🔹 NEW: solution-scoped CSS (raw)
+  meta?: SolutionMeta;
+  Component?: LazyExoticComponent<ComponentType<any>>;
+  import: () => Promise<{ default: ComponentType<any> }>;
 }
 
 const componentGlobs = import.meta.glob("../solutions/*/index.tsx");
+
 const metaGlobs = import.meta.glob("../solutions/*/meta.ts", { eager: true }) as Record<
   string,
   { default?: SolutionMeta }
 >;
-const readmeGlobs = import.meta.glob("../solutions/*/README.md", { as: "raw", eager: true }) as Record<
-  string,
-  string
->;
-const cssGlobs = import.meta.glob("../solutions/*/styles.css", { as: "raw", eager: true }) as Record<
-  string,
-  string
->;
+
+const readmeGlobs = import.meta.glob("../solutions/*/README.md", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+}) as Record<string, string>;
+
+const cssGlobs = import.meta.glob("../solutions/*/styles.css", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+}) as Record<string, string>;
+
 
 function pathToSlug(path: string) {
   const parts = path.split("/");
