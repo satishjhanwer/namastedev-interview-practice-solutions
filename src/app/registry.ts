@@ -1,8 +1,8 @@
-import type { ComponentType, LazyExoticComponent } from "react";
-import React from "react";
+import type { ComponentType, LazyExoticComponent } from 'react';
+import React from 'react';
 
-export type Difficulty = "Easy" | "Medium" | "Hard";
-export type Status = "Done" | "WIP";
+export type Difficulty = 'Easy' | 'Medium' | 'Hard';
+export type Status = 'Done' | 'WIP';
 
 export interface SolutionMeta {
   title: string;
@@ -22,29 +22,25 @@ export interface SolutionEntry {
   import: () => Promise<{ default: ComponentType<any> }>;
 }
 
-const componentGlobs = import.meta.glob("../solutions/*/index.tsx");
+const componentGlobs = import.meta.glob('../solutions/*/index.tsx');
 
-const metaGlobs = import.meta.glob("../solutions/*/meta.ts", { eager: true }) as Record<
-  string,
-  { default?: SolutionMeta }
->;
+const metaGlobs = import.meta.glob('../solutions/*/meta.ts', { eager: true }) as Record<string, { default?: SolutionMeta }>;
 
-const readmeGlobs = import.meta.glob("../solutions/*/README.md", {
+const readmeGlobs = import.meta.glob('../solutions/*/README.md', {
   eager: true,
-  query: "?raw",
-  import: "default",
+  query: '?raw',
+  import: 'default',
 }) as Record<string, string>;
 
-const cssGlobs = import.meta.glob("../solutions/*/styles.css", {
+const cssGlobs = import.meta.glob('../solutions/*/styles.css', {
   eager: true,
-  query: "?raw",
-  import: "default",
+  query: '?raw',
+  import: 'default',
 }) as Record<string, string>;
-
 
 function pathToSlug(path: string) {
-  const parts = path.split("/");
-  const i = parts.indexOf("solutions");
+  const parts = path.split('/');
+  const i = parts.indexOf('solutions');
   return parts[i + 1];
 }
 
@@ -61,10 +57,10 @@ const registry: SolutionEntry[] = Object.entries(componentGlobs).map(([path, imp
   return {
     slug,
     title: meta?.title ?? slug,
-    import: importer as SolutionEntry["import"],
+    import: importer as SolutionEntry['import'],
     meta,
     readme,
-    css
+    css,
   };
 });
 
