@@ -1,1 +1,14 @@
-/* provide your component styles */
+.counter-container {
+  font-smooth: always;
+  font-family: sans-serif;
+  -moz-font-smoothing: auto;
+  -webkit-touch-callout: none;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.counter-container h1 {
+  font-size: 1.5rem;
+}
