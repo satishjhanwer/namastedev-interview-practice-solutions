@@ -1,1 +1,109 @@
-/* provide your component styles */
+.leap-year-body {
+  margin: 0;
+  height: 80vh;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #e1e8ff, #c7d2ff);
+}
+
+.container {
+  padding: 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  background: #ffffffdd;
+  border: 2px solid #a0b0ff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.leap-year-body h1 {
+  font-size: 1.8rem;
+  color: #033857;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.leap-year-body label {
+  display: block;
+  color: #444;
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.leap-year-body input {
+  width: 90%;
+  color: #222;
+  padding: 0.9rem;
+  font-size: 1rem;
+  background: #f9faff;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  border: 2px solid #a0b0ff;
+}
+
+.leap-year-body input:focus {
+  outline: none;
+  background: #fff;
+  border-color: #4f46e5;
+  box-shadow: 0 0 8px #4f46e566;
+}
+
+.leap-year-body button {
+  width: 100%;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.9rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  background: #4f46e5;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.leap-year-body button:hover {
+  background: #3730a3;
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.35);
+}
+
+.leap-year-body button:active {
+  transform: scale(0.97);
+}
+
+.leap-year-body .result {
+  opacity: 0;
+  padding: 1rem;
+  color: #1e293b;
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+  background: #edf2ff;
+  border-radius: 0.5rem;
+  transform: translateY(10px);
+  border-left: 5px solid #4f46e5;
+  animation: slideFade 0.5s forwards ease;
+}
+
+.leap-year-body .error {
+  padding: 1rem;
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+@keyframes slideFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
