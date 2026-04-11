@@ -30,15 +30,15 @@ export default function SolutionPage() {
 
   return (
     <Paper sx={{ p: 2 }}>
-      <Stack direction="row" alignItems="center" justifyContent="space-between">
-        <Typography variant="h5" fontWeight={700}>
+      <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
+        <Typography variant="h5" component="h5" sx={{ fontWeight: 700 }}>
           {entry.title}
         </Typography>
         <Stack direction="row" spacing={1}>
           <Button startIcon={<ContentCopyIcon />} onClick={copyLink}>
             Copy link
           </Button>
-          <Button component={RouterLink} to="/" startIcon={<ArrowBackIcon />}>
+          <Button component={RouterLink} to="/" startIcon={<ArrowBackIcon />} nativeButton={false}>
             All solutions
           </Button>
         </Stack>

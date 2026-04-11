@@ -92,12 +92,14 @@ export default function Home() {
         onChange={(e) => setQ(e.target.value)}
         onKeyDown={onKeyDown}
         helperText="Use ↑/↓ to select, Enter to open. Click any chip to filter."
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon sx={{ color: 'text.secondary' }} />
-            </InputAdornment>
-          ),
+        slotProps={{
+          input: {
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon sx={{ color: 'text.secondary' }} />
+              </InputAdornment>
+            ),
+          },
         }}
         sx={{ mb: 1.5 }}
       />
@@ -117,7 +119,7 @@ export default function Home() {
           <Typography color="text.secondary">Try simpler keywords or clear the search box.</Typography>
         </Card>
       ) : (
-        <Grid container spacing={2} alignItems="stretch">
+        <Grid container spacing={2} sx={{ alignItems: 'stretch' }}>
           {filtered.map((it, idx) => (
             <Grid key={it.slug} size={{ xs: 12, sm: 6, md: 4 }} sx={{ display: 'flex' }}>
               <Card
@@ -128,7 +130,7 @@ export default function Home() {
                   boxShadow: idx === selected ? '0 0 0 3px rgba(11,95,255,.35)' : undefined,
                 }}
               >
-                <CardActionArea to={`/s/${it.slug}`} component={RouterLink} sx={{ height: '100%', display: 'flex', alignItems: 'stretch' }}>
+                <CardActionArea to={`/s/${it.slug}`} component={RouterLink} nativeButton={false} sx={{ height: '100%', display: 'flex', alignItems: 'stretch' }}>
                   <CardContent
                     sx={{
                       gap: 1,
@@ -140,7 +142,7 @@ export default function Home() {
                   >
                     <Typography variant="h6">{it.title}</Typography>
 
-                    <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+                    <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: 'wrap' }}>
                       {it.meta?.difficulty && (
                         <Chip
                           color={chipColor(it.meta.difficulty)}
