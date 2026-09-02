@@ -105,11 +105,7 @@ export default function Home() {
         sx={{ mb: 1.5 }}
       />
 
-      <p
-        ref={liveRef}
-        aria-live="polite"
-        style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}
-      />
+      <p ref={liveRef} aria-live="polite" className="visually-hidden" />
       <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
         Showing <b>{filtered.length}</b> of <b>{items.length}</b> solutions.
       </Typography>

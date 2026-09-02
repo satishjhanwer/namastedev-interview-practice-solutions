@@ -12,7 +12,7 @@ export default class ErrorBoundary extends React.Component<React.PropsWithChildr
   render() {
     if (this.state.err) {
       return (
-        <div style={{ color: '#ffb4b4' }}>
+        <div className="error-boundary">
           <strong>Component crashed:</strong> {String(this.state.err)}
         </div>
       );

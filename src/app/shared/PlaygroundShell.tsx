@@ -1,19 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-
-const BASE_CSS = `
-:host { color-scheme: light; }
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; }
-.pg {
-  padding: 16px;
-  color: #0f172a;
-  border-radius: 12px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-}
-`;
+import BASE_CSS from './playground-base.css?raw';
 
 export default function PlaygroundShell({ children, css }: PropsWithChildren<{ css?: string }>) {
   const hostRef = useRef<HTMLDivElement | null>(null);
