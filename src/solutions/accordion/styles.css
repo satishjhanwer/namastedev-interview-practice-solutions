@@ -1,4 +1,4 @@
-.accordion {
+.accordion-body-container {
     width: 100%;
     max-width: 400px;
     margin: auto;
@@ -46,7 +46,7 @@
     font-size: 14px;
 }
 
-.accordion p {
+.accordion-body-container p {
     font-size: 16px;
     color: #666;
     text-align: center;

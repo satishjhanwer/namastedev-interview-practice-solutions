@@ -35,7 +35,7 @@ export default function Accordion({ items = defaultItems }: AccordionProps): JSX
 
   if (!Array.isArray(items) || items.length === 0) {
     return (
-      <div className="accordion">
+      <div className="accordion-body-container">
         <p>No items available</p>
       </div>
     );
@@ -46,7 +46,7 @@ export default function Accordion({ items = defaultItems }: AccordionProps): JSX
   };
 
   return (
-    <div className="accordion">
+    <div className="accordion-body-container">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
