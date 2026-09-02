@@ -1,0 +1,94 @@
+.file-explorer-body-container {
+  font-family: sans-serif;
+  padding: 20px;
+  max-width: 420px;
+}
+
+.file-explorer-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 16px;
+}
+
+.file-explorer-body-container > .file-explorer-list {
+  padding-left: 0;
+}
+
+.file-explorer-item {
+  margin: 4px 0;
+}
+
+.file-explorer-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.file-explorer-toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.file-explorer-toggle-spacer {
+  width: 1em;
+  display: inline-block;
+}
+
+.file-explorer-name {
+  flex: 1 1 auto;
+}
+
+.file-explorer-icon {
+  cursor: pointer;
+  color: #555;
+}
+
+.file-explorer-icon:hover {
+  color: #111;
+}
+
+.file-explorer-children {
+  border-left: 1px dashed #ccc;
+  margin-left: 8px;
+}
+
+.file-explorer-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-explorer-modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 260px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.file-explorer-modal h3 {
+  margin-top: 0;
+}
+
+.file-explorer-modal input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+}
+
+.file-explorer-modal-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.file-explorer-modal-actions button {
+  padding: 6px 14px;
+  cursor: pointer;
+}
