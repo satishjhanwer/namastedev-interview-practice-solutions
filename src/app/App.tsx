@@ -10,7 +10,13 @@ export default function App() {
     <>
       <AppBar position="static" color="transparent" elevation={0}>
         <Toolbar sx={{ py: 1 }}>
-          <Typography variant="h4" component="h1" sx={{ flexGrow: 1, fontWeight: 800, color: 'text.primary' }} component={RouterLink} to="/">
+          <Typography
+            variant="h4"
+            component="h1"
+            sx={{ flexGrow: 1, fontWeight: 800, color: 'text.primary' }}
+            component={RouterLink}
+            to="/"
+          >
             NamasteDev Interview Practice Solutions
           </Typography>
           <Stack direction="row" spacing={1}>

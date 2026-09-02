@@ -130,7 +130,12 @@ export default function Home() {
                   boxShadow: idx === selected ? '0 0 0 3px rgba(11,95,255,.35)' : undefined,
                 }}
               >
-                <CardActionArea to={`/s/${it.slug}`} component={RouterLink} nativeButton={false} sx={{ height: '100%', display: 'flex', alignItems: 'stretch' }}>
+                <CardActionArea
+                  to={`/s/${it.slug}`}
+                  component={RouterLink}
+                  nativeButton={false}
+                  sx={{ height: '100%', display: 'flex', alignItems: 'stretch' }}
+                >
                   <CardContent
                     sx={{
                       gap: 1,

@@ -41,11 +41,11 @@ This component displays a single progress bar whose value can be increased or de
 
 The progress bar color changes based on the current value:
 
-| Progress Value | Color |
-| --------------- | ------- |
-| `< 40%` | Red |
-| `40% – 79%` | Orange |
-| `≥ 80%` | Green |
+| Progress Value | Color  |
+| -------------- | ------ |
+| `< 40%`        | Red    |
+| `40% – 79%`    | Orange |
+| `≥ 80%`        | Green  |
 
 ## Behavior
 

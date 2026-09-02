@@ -49,12 +49,12 @@ The following `data-testid` attributes are required for automated testing:
 
 ## Example Inputs & Outputs
 
-|Input|Output|
-|-----|------|
-|`4`|`The number 4 is even.`|
-|`5`|`The number 5 is odd.`|
-|`abc`|`Please enter a valid number.`|
-|`` (empty) ``|`Please enter a valid number.`|
+| Input     | Output                         |
+| --------- | ------------------------------ |
+| `4`       | `The number 4 is even.`        |
+| `5`       | `The number 5 is odd.`         |
+| `abc`     | `Please enter a valid number.` |
+| `(empty)` | `Please enter a valid number.` |
 
 ## Tech Stack
 

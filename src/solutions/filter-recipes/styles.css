@@ -62,12 +62,14 @@
   background: #ffffff;
   flex-direction: column;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 .thumb {
@@ -96,11 +98,11 @@
 }
 
 .badge::before {
-  content: "🍴 ";
+  content: '🍴 ';
 }
 
 .rating::before {
-  content: "⭐ ";
+  content: '⭐ ';
 }
 
 .reviews {
@@ -117,7 +119,10 @@
   border-radius: 10px;
   background: #19a874;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
-  transition: transform 0.06s ease, background 0.12s ease, box-shadow 0.12s ease;
+  transition:
+    transform 0.06s ease,
+    background 0.12s ease,
+    box-shadow 0.12s ease;
 }
 
 .btn:hover {

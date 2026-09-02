@@ -21,7 +21,7 @@
   background: #ffffff;
   animation: fadeIn 0.3s ease-out;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @keyframes fadeIn {

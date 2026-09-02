@@ -1,4 +1,4 @@
-import { useState, type JSX } from "react";
+import { useState, type JSX } from 'react';
 
 export default function CounterUsingReact(): JSX.Element {
   const [count, setCount] = useState<number>(0);
@@ -25,4 +25,4 @@ export default function CounterUsingReact(): JSX.Element {
       <button onClick={handleReset}>Reset</button>
     </div>
   );
-};
+}

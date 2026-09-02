@@ -23,13 +23,7 @@ export default function UrlValidator(): JSX.Element {
   return (
     <div className="url-validator-body-container">
       <h1>URL Validator</h1>
-      <input
-        data-testid="url-input"
-        type="text"
-        placeholder="Enter a URL..."
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
+      <input data-testid="url-input" type="text" placeholder="Enter a URL..." value={value} onChange={(e) => setValue(e.target.value)} />
       <div data-testid="result" className={valid ? 'url-validator-valid' : 'url-validator-invalid'}>
         {valid ? 'Valid URL' : 'Invalid URL'}
       </div>

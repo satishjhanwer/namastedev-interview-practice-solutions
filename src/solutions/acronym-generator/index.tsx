@@ -24,13 +24,7 @@ export default function AcronymGenerator(): JSX.Element {
       <p>An acronym is formed by taking the first letter of each word in a phrase and converting them to uppercase.</p>
 
       <div className="acronym-generator-controls">
-        <input
-          data-testid="input"
-          type="text"
-          placeholder="Enter a phrase..."
-          value={phrase}
-          onChange={(e) => setPhrase(e.target.value)}
-        />
+        <input data-testid="input" type="text" placeholder="Enter a phrase..." value={phrase} onChange={(e) => setPhrase(e.target.value)} />
         <button data-testid="generate-button" onClick={handleGenerate}>
           Generate
         </button>

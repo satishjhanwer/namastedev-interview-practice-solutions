@@ -1,7 +1,7 @@
 .even-odd-body-container {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
   height: 80vh;
   display: flex;

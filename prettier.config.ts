@@ -1,11 +1,11 @@
-import { type Config } from "prettier";
+import { type Config } from 'prettier';
 
 const config: Config = {
-  "semi": true,
-  "tabWidth": 2,
-  "printWidth": 140,
-  "singleQuote": true,
-  "trailingComma": "all"
+  semi: true,
+  tabWidth: 2,
+  printWidth: 140,
+  singleQuote: true,
+  trailingComma: 'all',
 };
 
 export default config;

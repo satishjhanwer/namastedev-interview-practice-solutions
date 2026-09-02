@@ -56,12 +56,12 @@ The Leap Year Checker accepts a year as text input and checks whether it qualifi
 
 ## Example Scenarios
 
-| Input | Result |
-| ------ | -------- |
-| `2020` | `2020 is a Leap Year` |
-| `2021` | `2021 is not a Leap Year` |
-| `2028` | `2028 is a Leap Year` |
-| ``(empty)`` | `Please enter a year` |
+| Input     | Result                    |
+| --------- | ------------------------- |
+| `2020`    | `2020 is a Leap Year`     |
+| `2021`    | `2021 is not a Leap Year` |
+| `2028`    | `2028 is a Leap Year`     |
+| `(empty)` | `Please enter a year`     |
 
 ## Data Test IDs
 

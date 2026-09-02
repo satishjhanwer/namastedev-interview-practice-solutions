@@ -6,7 +6,7 @@
   align-items: center;
   box-sizing: border-box;
   justify-content: center;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #e1e8ff, #c7d2ff);
 }
 
@@ -17,7 +17,9 @@
   background: #ffffffdd;
   border: 2px solid #a0b0ff;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .container:hover {
@@ -70,7 +72,9 @@
   background: #4f46e5;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .leap-year-body button:hover {

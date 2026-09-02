@@ -14,13 +14,15 @@ Package manager is Yarn 4 (`packageManager: yarn@4.18.0` in package.json); npm w
 yarn dev              # start Vite dev server
 yarn build             # production build (tsc -b && vite build implicitly via vite build)
 yarn preview           # preview the production build
-yarn test              # run vitest once (--environment jsdom)
+yarn lint              # run ESLint
+yarn lint:fix          # run ESLint with --fix
+yarn format            # run Prettier --write across the repo
 yarn new:solution <slug>   # scaffold a new solution folder under src/solutions/<slug>
 ```
 
-There is no lint script and no test files currently exist in the repo, despite vitest/testing-library being installed as devDependencies.
+There is no test runner in the repo (vitest/testing-library were removed since no tests existed and vitest pulled in a vulnerable transitive `vite` version).
 
-To run a single test file once tests exist: `yarn vitest run path/to/file.test.tsx --environment jsdom`.
+TypeScript is pinned to `^6.0.3` (not the newer 7.x line) because `typescript-eslint` does not yet support TypeScript 7's compiler API - don't bump past 6.x until that's resolved (tracked upstream in [typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940)).
 
 Node version is pinned via `.nvmrc` to 24.
 
