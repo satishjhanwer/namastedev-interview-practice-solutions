@@ -1,0 +1,68 @@
+.tab-switcher-body-container {
+  max-width: 720px;
+  margin: 50px auto;
+  padding: 30px 40px;
+  background-color: #e6f0f3;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f3a3a;
+  user-select: none;
+}
+
+.tab-switcher-body-container h1 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: #134140;
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.tab-buttons button {
+  background-color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c5d58;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(47, 79, 79, 0.07);
+}
+
+.tab-buttons button:hover {
+  background-color: #a1d2ce;
+  color: #134140;
+  box-shadow: 0 6px 14px rgba(47, 79, 79, 0.12);
+  transform: translateY(-2px);
+}
+
+.tab-buttons button.active {
+  background-color: #147b74;
+  color: #e6f0f3;
+  border-color: #0f5a56;
+  box-shadow: 0 8px 20px rgba(20, 123, 116, 0.6);
+  transform: translateY(-3px);
+}
+
+.tab-content {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 36px 28px;
+  font-size: 18px;
+  line-height: 1.6;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+  color: #1f3a3a; /* dark slate */
+  text-align: center;
+  min-height: 100px;
+  user-select: text;
+}
