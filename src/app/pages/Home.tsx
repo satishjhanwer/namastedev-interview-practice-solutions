@@ -1,7 +1,8 @@
 import { Link as RouterLink, useNavigate, useSearchParams } from 'react-router-dom';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Card, CardActionArea, CardContent, Chip, Grid, Stack, TextField, Typography, Box, InputAdornment } from '@mui/material';
+import { Card, CardActionArea, CardContent, Chip, Fab, Grid, Stack, TextField, Typography, Box, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { getAllSolutions } from '../registry';
 
 const PAGE_SIZE = 12;
@@ -226,6 +227,18 @@ export default function Home() {
       )}
 
       {visibleCount < filtered.length && <div ref={sentinelRef} className="scroll-sentinel" />}
+
+      {filtered.length > PAGE_SIZE && (
+        <Fab
+          color="primary"
+          size="small"
+          aria-label="Scroll to top"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          sx={{ position: 'fixed', bottom: 24, right: 24 }}
+        >
+          <KeyboardArrowUpIcon />
+        </Fab>
+      )}
     </Box>
   );
 }
