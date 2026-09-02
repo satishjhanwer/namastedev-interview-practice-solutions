@@ -1,0 +1,30 @@
+.acronym-generator-body-container {
+  font-family: sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+.acronym-generator-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.acronym-generator-controls input {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.acronym-generator-controls button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.acronym-generator-controls p {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
