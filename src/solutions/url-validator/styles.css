@@ -1,0 +1,26 @@
+.url-validator-body-container {
+  font-family: sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+.url-validator-body-container input {
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.url-validator-body-container p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.url-validator-valid {
+  color: green;
+}
+
+.url-validator-invalid {
+  color: red;
+}
