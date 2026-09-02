@@ -74,6 +74,13 @@
   margin-top: 0;
 }
 
+.file-explorer-modal label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  text-transform: capitalize;
+}
+
 .file-explorer-modal input {
   width: 100%;
   padding: 8px;

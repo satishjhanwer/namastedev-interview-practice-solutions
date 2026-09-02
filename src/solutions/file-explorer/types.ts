@@ -7,6 +7,8 @@ export interface TreeNode {
 
 export interface FileAndFolderProps {
   data: TreeNode[];
+  expandedIds: Set<number>;
+  onToggleExpand: (id: number) => void;
   onDelete: (id: number) => void;
   onOpenAddModal: (parentId: number, type: 'file' | 'folder') => void;
 }

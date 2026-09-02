@@ -1,24 +1,10 @@
-import { type JSX, useState } from 'react';
+import { type JSX } from 'react';
 import { MdExpandLess, MdExpandMore, MdDeleteOutline } from 'react-icons/md';
 import { FiFolderPlus } from 'react-icons/fi';
 import { AiOutlineFileAdd } from 'react-icons/ai';
 import type { FileAndFolderProps } from './types';
 
-export default function FileAndFolder({ data, onDelete, onOpenAddModal }: FileAndFolderProps): JSX.Element {
-  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
-
-  const toggleExpand = (id: number): void => {
-    setExpandedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  };
-
+export default function FileAndFolder({ data, expandedIds, onToggleExpand, onDelete, onOpenAddModal }: FileAndFolderProps): JSX.Element {
   return (
     <ul className="file-explorer-list">
       {data.map((node) => {
@@ -33,8 +19,8 @@ export default function FileAndFolder({ data, onDelete, onOpenAddModal }: FileAn
                   className="file-explorer-toggle"
                   role="button"
                   tabIndex={0}
-                  onClick={() => toggleExpand(node.id)}
-                  onKeyDown={(e) => e.key === 'Enter' && toggleExpand(node.id)}
+                  onClick={() => onToggleExpand(node.id)}
+                  onKeyDown={(e) => e.key === 'Enter' && onToggleExpand(node.id)}
                 >
                   {isExpanded ? <MdExpandLess /> : <MdExpandMore />}
                 </span>
@@ -71,7 +57,13 @@ export default function FileAndFolder({ data, onDelete, onOpenAddModal }: FileAn
 
             {node.isFolder && isExpanded && hasChildren && (
               <div className="file-explorer-children">
-                <FileAndFolder data={node.children ?? []} onDelete={onDelete} onOpenAddModal={onOpenAddModal} />
+                <FileAndFolder
+                  data={node.children ?? []}
+                  expandedIds={expandedIds}
+                  onToggleExpand={onToggleExpand}
+                  onDelete={onDelete}
+                  onOpenAddModal={onOpenAddModal}
+                />
               </div>
             )}
           </li>

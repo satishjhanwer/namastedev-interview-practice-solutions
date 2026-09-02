@@ -45,6 +45,19 @@ export default function FileExplorer(): JSX.Element {
   const [idCounter, setIdCounter] = useState<number>(7);
   const [modalState, setModalState] = useState<ModalState | null>(null);
   const [inputValue, setInputValue] = useState<string>('');
+  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
+
+  const toggleExpand = (id: number): void => {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
+  };
 
   const handleOpenAddModal = (parentId: number, type: AddType): void => {
     setModalState({ parentId, type });
@@ -70,6 +83,7 @@ export default function FileExplorer(): JSX.Element {
 
     setData((prev) => addNode(prev, modalState.parentId, newNode));
     setIdCounter((prev) => prev + 1);
+    setExpandedIds((prev) => new Set(prev).add(modalState.parentId));
     setModalState(null);
     setInputValue('');
   };
@@ -81,13 +95,21 @@ export default function FileExplorer(): JSX.Element {
   return (
     <div className="file-explorer-body-container">
       <h2>File Explorer</h2>
-      <FileAndFolder data={data} onDelete={handleDelete} onOpenAddModal={handleOpenAddModal} />
+      <FileAndFolder
+        data={data}
+        expandedIds={expandedIds}
+        onToggleExpand={toggleExpand}
+        onDelete={handleDelete}
+        onOpenAddModal={handleOpenAddModal}
+      />
 
       {modalState && (
         <div className="file-explorer-modal-overlay">
           <div className="file-explorer-modal">
             <h3>Add {modalState.type === 'folder' ? 'Folder' : 'File'}</h3>
+            <label htmlFor="file-explorer-new-item-name">Enter {modalState.type} name</label>
             <input
+              id="file-explorer-new-item-name"
               type="text"
               autoFocus
               value={inputValue}
