@@ -1,8 +1,10 @@
 import { Link as RouterLink, useNavigate, useSearchParams } from 'react-router-dom';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Card, CardActionArea, CardContent, Chip, Grid, Stack, TextField, Typography, Box, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { getAllSolutions } from '../registry';
+
+const PAGE_SIZE = 12;
 
 export default function Home() {
   const nav = useNavigate();
@@ -43,6 +45,35 @@ export default function Home() {
     return items.filter((it) => [it.title, it.slug, ...(it.meta?.tags ?? [])].join(' ').toLowerCase().includes(s));
   }, [items, q]);
 
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const [prevFiltered, setPrevFiltered] = useState(filtered);
+  if (filtered !== prevFiltered) {
+    setPrevFiltered(filtered);
+    setVisibleCount(PAGE_SIZE);
+  }
+
+  const visibleItems = filtered.slice(0, visibleCount);
+
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const sentinelRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      observerRef.current?.disconnect();
+      if (!node) {
+        return;
+      }
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          if (entries[0]?.isIntersecting) {
+            setVisibleCount((v) => Math.min(filtered.length, v + PAGE_SIZE));
+          }
+        },
+        { rootMargin: '200px' },
+      );
+      observerRef.current.observe(node);
+    },
+    [filtered.length],
+  );
+
   useEffect(() => {
     if (!liveRef.current) {
       return;
@@ -58,7 +89,11 @@ export default function Home() {
     }
     e.preventDefault();
     if (e.key === 'ArrowDown') {
-      setSelected(Math.min(selectedIndex + 1, filtered.length - 1));
+      const next = Math.min(selectedIndex + 1, filtered.length - 1);
+      setSelected(next);
+      if (next >= visibleCount) {
+        setVisibleCount((v) => Math.min(filtered.length, v + PAGE_SIZE));
+      }
     } else if (e.key === 'ArrowUp') {
       setSelected(Math.max(selectedIndex - 1, 0));
     } else if (e.key === 'Enter') {
@@ -117,7 +152,7 @@ export default function Home() {
         </Card>
       ) : (
         <Grid container spacing={2} sx={{ alignItems: 'stretch' }}>
-          {filtered.map((it, idx) => (
+          {visibleItems.map((it, idx) => (
             <Grid key={it.slug} size={{ xs: 12, sm: 6, md: 4 }} sx={{ display: 'flex' }}>
               <Card
                 sx={{
@@ -189,6 +224,8 @@ export default function Home() {
           ))}
         </Grid>
       )}
+
+      {visibleCount < filtered.length && <div ref={sentinelRef} className="scroll-sentinel" />}
     </Box>
   );
 }

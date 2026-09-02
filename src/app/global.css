@@ -25,3 +25,7 @@
   margin-top: 8px;
   text-decoration: none;
 }
+
+.scroll-sentinel {
+  height: 1px;
+}
