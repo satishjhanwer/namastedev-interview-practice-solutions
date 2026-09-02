@@ -1,0 +1,55 @@
+.array-to-zigzag-converter-body-container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.array-to-zigzag-converter-body-container h1 {
+  margin-bottom: 24px;
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+.array-to-zigzag-converter-body-container input[type='text'] {
+  width: 80%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.array-to-zigzag-converter-body-container input[type='text']:focus {
+  border-color: #3498db;
+}
+
+.array-to-zigzag-converter-body-container button {
+  margin-top: 16px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #363737;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.array-to-zigzag-converter-body-container button:hover {
+  background-color: #555a5a;
+}
+
+.array-to-zigzag-converter-body-container p {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1f2122;
+  word-break: break-word;
+}
