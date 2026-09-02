@@ -1,0 +1,27 @@
+.focus-input-body-container {
+  font-family: sans-serif;
+  -webkit-font-smoothing: auto;
+  -moz-font-smoothing: auto;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+  font-smooth: always;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+.focus-input-field {
+  padding: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.focus-input-button {
+  padding: 8px 12px;
+}
