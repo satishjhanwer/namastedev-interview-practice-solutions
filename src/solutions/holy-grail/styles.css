@@ -1,0 +1,47 @@
+.holy-grail-body-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.holy-grail-body-container header,
+.holy-grail-body-container footer {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+  background-color: #2b2f36;
+  color: #fff;
+}
+
+.holy-grail-body-container header {
+  height: 60px;
+}
+
+.holy-grail-body-container footer {
+  height: 100px;
+}
+
+.columns {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.columns nav,
+.columns aside {
+  flex: 0 0 100px;
+  width: 100px;
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}
+
+.columns main {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: #fafafa;
+}
