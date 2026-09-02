@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type JSX } from 'react';
+import { useEffect, useRef, useState, type JSX, type KeyboardEvent } from 'react';
 
 function ConfirmationModal(): JSX.Element {
   const [status, setStatus] = useState<string>('');
@@ -32,7 +32,7 @@ function ConfirmationModal(): JSX.Element {
     setStatus('Cancelled');
   };
 
-  const onKeyDownBackdrop = (e: any) => {
+  const onKeyDownBackdrop = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Escape') handleCancel();
   };
 

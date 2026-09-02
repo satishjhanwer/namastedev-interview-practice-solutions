@@ -20,14 +20,19 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const next = new URLSearchParams(params);
-    if (q) {
-      next.set('q', q);
-    } else {
-      next.delete('q');
-    }
-    setParams(next, { replace: true });
-  }, [q]);
+    setParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        if (q) {
+          next.set('q', q);
+        } else {
+          next.delete('q');
+        }
+        return next;
+      },
+      { replace: true },
+    );
+  }, [q, setParams]);
 
   const filtered = useMemo(() => {
     const s = q.trim().toLowerCase();
@@ -45,11 +50,7 @@ export default function Home() {
     liveRef.current.textContent = `Showing ${filtered.length} of ${items.length} solutions.`;
   }, [filtered.length, items.length]);
 
-  useEffect(() => {
-    if (selected >= filtered.length) {
-      setSelected(filtered.length ? filtered.length - 1 : 0);
-    }
-  }, [filtered.length, selected]);
+  const selectedIndex = filtered.length ? Math.min(selected, filtered.length - 1) : 0;
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!filtered.length) {
@@ -57,11 +58,11 @@ export default function Home() {
     }
     e.preventDefault();
     if (e.key === 'ArrowDown') {
-      setSelected((i) => Math.min(i + 1, filtered.length - 1));
+      setSelected(Math.min(selectedIndex + 1, filtered.length - 1));
     } else if (e.key === 'ArrowUp') {
-      setSelected((i) => Math.max(i - 1, 0));
+      setSelected(Math.max(selectedIndex - 1, 0));
     } else if (e.key === 'Enter') {
-      nav(`/s/${filtered[selected].slug}`);
+      nav(`/s/${filtered[selectedIndex].slug}`);
     }
   };
 
@@ -127,7 +128,7 @@ export default function Home() {
                   flexGrow: 1,
                   display: 'flex',
                   flexDirection: 'column',
-                  boxShadow: idx === selected ? '0 0 0 3px rgba(11,95,255,.35)' : undefined,
+                  boxShadow: idx === selectedIndex ? '0 0 0 3px rgba(11,95,255,.35)' : undefined,
                 }}
               >
                 <CardActionArea

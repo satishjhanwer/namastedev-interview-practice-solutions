@@ -18,8 +18,8 @@ export interface SolutionEntry {
   title: string;
   readme?: string;
   meta?: SolutionMeta;
-  Component?: LazyExoticComponent<ComponentType<any>>;
-  import: () => Promise<{ default: ComponentType<any> }>;
+  Component?: LazyExoticComponent<ComponentType>;
+  import: () => Promise<{ default: ComponentType }>;
 }
 
 const componentGlobs = import.meta.glob('../solutions/*/index.tsx');

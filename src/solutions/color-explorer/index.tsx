@@ -1,5 +1,10 @@
-import { useMemo, useState, type JSX } from 'react';
+import { useMemo, useState, type JSX, type KeyboardEvent } from 'react';
 import { colorNameToHex } from './colorData';
+
+interface ColorResult {
+  name: string;
+  hex: string;
+}
 
 const normalizeKey = (s: string): string => {
   const collapsed = s.trim().replace(/\s+/g, ' ');
@@ -34,7 +39,7 @@ const cap = (s: string): string => {
 export default function ColorExplorer(): JSX.Element {
   const [input, setInput] = useState<string>('');
   const [error, setError] = useState<string>('');
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<ColorResult | null>(null);
 
   const normalized = useMemo(() => normalizeKey(input), [input]);
 
@@ -55,7 +60,7 @@ export default function ColorExplorer(): JSX.Element {
     }
   };
 
-  const onKeyDown = (e: any) => {
+  const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') handleSearch();
   };
 

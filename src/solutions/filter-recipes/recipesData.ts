@@ -1,4 +1,13 @@
-const recipesData: Array<Record<string, any>> = [
+export interface Recipe {
+  id: number;
+  rating: number;
+  reviewCount: number;
+  cuisine: string;
+  name: string;
+  image: string;
+}
+
+const recipesData: Recipe[] = [
   {
     id: 1,
     rating: 4.6,

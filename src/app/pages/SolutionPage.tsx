@@ -12,6 +12,8 @@ export default function SolutionPage() {
   const { slug = '' } = useParams();
   const entry = findSolution(slug);
   const [tab, setTab] = useState<0 | 1>(0);
+  // getLazyComponent caches the lazy component on the registry entry itself, so this
+  // stays referentially stable across renders despite being resolved via a function call.
   const Comp = useMemo(() => (entry ? getLazyComponent(entry) : null), [entry]);
 
   if (!entry) {
@@ -25,7 +27,9 @@ export default function SolutionPage() {
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
-    } catch {}
+    } catch {
+      // Clipboard permission denied or unsupported - nothing actionable to do here.
+    }
   };
 
   return (
@@ -54,6 +58,8 @@ export default function SolutionPage() {
           <Suspense fallback={<div>Loading…</div>}>
             <ErrorBoundary>
               <PlaygroundShell css={entry.css}>
+                {/* Comp is memoized via the registry cache, not recreated per render - see getLazyComponent */}
+                {/* eslint-disable-next-line react-hooks/static-components */}
                 <Comp />
               </PlaygroundShell>
             </ErrorBoundary>
