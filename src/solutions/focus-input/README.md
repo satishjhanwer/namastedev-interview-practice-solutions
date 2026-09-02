@@ -8,7 +8,7 @@ A minimal example of imperative DOM access in React: clicking a button moves foc
 
 - `useRef<HTMLInputElement>(null)` creates a ref attached to the input via the `ref` prop.
 - The button's `onClick` handler calls `inputRef.current?.focus()`, letting the DOM API handle focus directly rather than tracking focus in state.
-- The input is not focused on mount — only the button click triggers `.focus()`.
+- The input is not focused on mount - only the button click triggers `.focus()`.
 
 ## Trade-offs
 

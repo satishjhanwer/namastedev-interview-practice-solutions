@@ -4,9 +4,9 @@ A collection of small React + TypeScript UI solutions and interview-practice com
 
 ## Contents
 
-- `src/` — application source and pages.
-- `src/solutions/` — individual solution examples (accordion, chip-input, progress-bar, etc.).
-- `scripts/new-solution.mjs` — helper script to scaffold new solution folders.
+- `src/` - application source and pages.
+- `src/solutions/` - individual solution examples (accordion, chip-input, progress-bar, etc.).
+- `scripts/new-solution.mjs` - helper script to scaffold new solution folders.
 
 ## Quick Start
 
@@ -37,9 +37,9 @@ yarn preview
 
 ## Project Structure
 
-- [src](src) — React app entry and pages.
-- [src/solutions](src/solutions) — each solution in its own folder with `index.tsx`, `meta.ts`, `README.md`, and `styles.css`.
-- [scripts](scripts) — development utilities (scaffolding helpers).
+- [src](src) - React app entry and pages.
+- [src/solutions](src/solutions) - each solution in its own folder with `index.tsx`, `meta.ts`, `README.md`, and `styles.css`.
+- [scripts](scripts) - development utilities (scaffolding helpers).
 
 ## Contributing
 
