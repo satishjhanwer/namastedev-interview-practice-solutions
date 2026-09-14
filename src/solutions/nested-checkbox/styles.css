@@ -1,0 +1,32 @@
+.nested-checkbox-body-container {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.nested-checkbox-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.nested-checkbox-body-container > .nested-checkbox-list {
+  padding-left: 0;
+}
+
+.nested-checkbox-item {
+  margin: 6px 0;
+}
+
+.nested-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nested-checkbox-row input[type='checkbox'] {
+  cursor: pointer;
+}
+
+.nested-checkbox-row span {
+  cursor: pointer;
+}
