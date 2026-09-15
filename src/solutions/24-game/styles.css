@@ -1,0 +1,125 @@
+.game24-body-container {
+  font-family: sans-serif;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  font-size: 26px;
+}
+
+.title small {
+  font-size: 13px;
+  font-weight: normal;
+  color: #666;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.card {
+  padding: 18px 0;
+  font-size: 22px;
+  font-weight: bold;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.card:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.card:disabled {
+  background-color: #ddd;
+  color: #999;
+  border-color: #ccc;
+  cursor: default;
+}
+
+.expr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 32px;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.result-correct {
+  color: #2e7d32;
+}
+
+.result-incorrect,
+.result-invalid {
+  color: #c62828;
+}
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.bar button {
+  padding: 8px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+.bar button:hover:not(:disabled) {
+  background-color: #eee;
+}
+
+.bar button:disabled {
+  color: #aaa;
+  cursor: default;
+}
+
+.give-up-message {
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+.history {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.history h4 {
+  margin-bottom: 8px;
+}
+
+.history-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.history-container li {
+  padding: 6px 10px;
+  border-bottom: 1px solid #eee;
+  font-family: monospace;
+  font-size: 14px;
+}
